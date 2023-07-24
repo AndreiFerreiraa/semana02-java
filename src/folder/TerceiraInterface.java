@@ -15,7 +15,7 @@ import javax.swing.Timer;
 public class TerceiraInterface extends javax.swing.JFrame {
 
     private int tempoRestante;
-    private int tempoInicial = 25;
+    private int tempoInicial = 1;
     private Timer timer;
     
     public TerceiraInterface() {
@@ -72,22 +72,33 @@ public class TerceiraInterface extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
+     tempoRestante = tempoInicial * 60; // tempo inicial convertido para segundos;
         
-        tempoRestante = tempoInicial * 60; // tempo inicial convertido para segundos;
-        
-        timer = new Timer(1000,new ActionListener(){
+        timer = new Timer(100,new ActionListener(){ 
+            @Override
             public void actionPerformed(ActionEvent e){
                 atualizaTempo();
             
             }
-        });     
+        });
+        timer.start();
+        start.setEnabled(false);
     }//GEN-LAST:event_startActionPerformed
     
     private void atualizaTempo(){
         int minutos = tempoRestante / 60;
         int segundos = tempoRestante % 60;
         
-        String TempoText = String.format("%02d:02d", minutos, segundos);
+        String timeText = String.format("%02d:%02d", minutos, segundos);
+        
+        time.setText(timeText);
+        
+        tempoRestante--;
+        
+        if(tempoRestante < 0){
+            timer.stop();
+            start.setEnabled(true);
+        }
     };
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
