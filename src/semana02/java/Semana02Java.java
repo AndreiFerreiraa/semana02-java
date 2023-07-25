@@ -1,10 +1,11 @@
 
 package semana02.java;
 
+import folder.QuartaInterface;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
-import folder.SegundaInterface;
-import folder.TerceiraInterface;
+//import folder.SegundaInterface;
+//import folder.TerceiraInterface;
 //import folder.PrimeiraInterface;
 
 public class Semana02Java {
@@ -14,7 +15,8 @@ public class Semana02Java {
         //metodoScanner();
         //metodoJoption();
         //new PrimeiraInterface();
-        new TerceiraInterface().setVisible(true);
+        //new TerceiraInterface().setVisible(true);
+        new QuartaInterface().setVisible(true);
         
 }
     public static void metodoJoption(){
